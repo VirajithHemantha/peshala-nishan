@@ -1,0 +1,237 @@
+@import "tailwindcss";
+
+@theme {
+  --font-serif: "Cormorant Garamond", serif;
+  --font-script: "Great Vibes", cursive;
+  --font-sans: "Inter", sans-serif;
+  --font-cinzel: "Cinzel", serif;
+  --font-montserrat: "Montserrat", sans-serif;
+  --font-playball: "Playball", cursive;
+
+  --color-sage: #d4af37;
+  --color-paper: #FDFBF7;
+
+  --color-theme-50: #fdfcf8;
+  --color-theme-100: #faf6ea;
+  --color-theme-200: #f4ecce;
+  --color-theme-300: #ebdca7;
+  --color-theme-400: #dec576;
+  --color-theme-500: #d4af37;
+  --color-theme-600: #b58b22;
+  --color-theme-700: #93681b;
+  --color-theme-800: #7a531b;
+  --color-theme-900: #684318;
+}
+
+:root {
+  background-color: var(--color-paper);
+  color: #2D2D2D;
+  font-family: var(--font-montserrat);
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  height: 100%;
+  width: 100%;
+}
+
+.serif {
+  font-family: var(--font-serif);
+}
+
+.script {
+  font-family: var(--font-script);
+}
+
+.clip-path-envelope {
+  clip-path: polygon(0 0, 50% 100%, 100% 0);
+}
+
+.clip-path-envelope-bottom {
+  clip-path: polygon(0 100%, 50% 0, 100% 100%);
+}
+
+/* 3D Transform Utilities */
+.perspective-1000 {
+  perspective: 1000px;
+}
+
+.transform-style-3d {
+  transform-style: preserve-3d;
+}
+
+.backface-hidden {
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+.mandala-frame {
+  --mandala-accent-opacity: 0.38;
+  --mandala-soft-opacity: 0.16;
+}
+
+.mandala-corner {
+  position: absolute;
+  width: clamp(300px, 38vw, 620px);
+  aspect-ratio: 1 / 1;
+  opacity: var(--mandala-accent-opacity);
+  filter: sepia(1) saturate(1.55) hue-rotate(285deg) brightness(1.12) contrast(1.05);
+}
+
+.mandala-corner.is-soft {
+  opacity: var(--mandala-soft-opacity);
+}
+
+.mandala-art {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  mix-blend-mode: darken;
+}
+
+.mandala-corner-tr {
+  top: -11%;
+  right: -11%;
+  transform: rotate(12deg);
+}
+
+.mandala-corner-bl {
+  bottom: -13%;
+  left: -12%;
+  transform: rotate(-12deg);
+}
+
+.mandala-corner-tl {
+  top: 19%;
+  left: -22%;
+  transform: rotate(-8deg);
+}
+
+.mandala-corner-br {
+  right: -24%;
+  bottom: 18%;
+  transform: rotate(6deg);
+}
+
+.website-shell {
+  background:
+    radial-gradient(circle at 18% 14%, rgba(212, 175, 55, 0.12), transparent 38%),
+    radial-gradient(circle at 84% 72%, rgba(222, 197, 118, 0.15), transparent 42%),
+    linear-gradient(180deg, #fffdf8 0%, #fdfaf5 42%, #fffdf8 100%);
+}
+
+.section-floral-overlay {
+  opacity: 0.6;
+}
+
+.section-floral-overlay::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 20% 25%, rgba(212, 175, 55, 0.1), transparent 35%),
+    radial-gradient(circle at 78% 75%, rgba(222, 197, 118, 0.12), transparent 38%);
+}
+
+.paper-grain {
+  background-image:
+    radial-gradient(circle at 12% 18%, rgba(255, 255, 255, 0.85) 0.5px, transparent 0.8px),
+    radial-gradient(circle at 78% 42%, rgba(212, 175, 55, 0.15) 0.6px, transparent 0.9px),
+    radial-gradient(circle at 42% 76%, rgba(147, 104, 27, 0.1) 0.5px, transparent 0.8px);
+  background-size: 9px 9px, 15px 15px, 18px 18px;
+}
+
+.paper-grain-strong {
+  background-image:
+    radial-gradient(circle at 22% 24%, rgba(255, 255, 255, 0.88) 0.55px, transparent 0.85px),
+    radial-gradient(circle at 70% 64%, rgba(212, 175, 55, 0.2) 0.65px, transparent 0.95px),
+    linear-gradient(180deg, rgba(255, 251, 247, 0.75), rgba(253, 245, 238, 0.8));
+  background-size: 8px 8px, 14px 14px, 100% 100%;
+}
+
+.cv-auto {
+  content-visibility: auto;
+  contain-intrinsic-size: 900px;
+}
+
+.smooth-mobile-scroll {
+  -webkit-overflow-scrolling: touch;
+  overscroll-behavior-y: contain;
+  touch-action: pan-y;
+}
+
+@supports not (content-visibility: auto) {
+  .cv-auto {
+    content-visibility: visible;
+    contain-intrinsic-size: auto;
+  }
+}
+
+/* iOS Safari can skip painting below-fold blocks with content-visibility. */
+@supports (-webkit-touch-callout: none) {
+  .cv-auto {
+    content-visibility: visible;
+    contain-intrinsic-size: auto;
+  }
+}
+
+@media (max-width: 768px) {
+  .mandala-frame {
+    --mandala-accent-opacity: 0.35;
+    --mandala-soft-opacity: 0.14;
+  }
+
+  .mandala-mobile-hidden {
+    display: none;
+  }
+
+  .mandala-corner {
+    width: clamp(260px, 74vw, 430px);
+  }
+
+  .mandala-corner-tr {
+    top: -10%;
+    right: -26%;
+  }
+
+  .mandala-corner-bl {
+    bottom: -13%;
+    left: -28%;
+  }
+
+  .mandala-corner-tl {
+    top: 18%;
+    left: -41%;
+  }
+
+  .mandala-corner-br {
+    right: -40%;
+    bottom: 16%;
+  }
+
+  .section-floral-overlay {
+    opacity: 0.6;
+  }
+
+  .cv-auto {
+    content-visibility: visible;
+    contain-intrinsic-size: auto;
+  }
+}
+
+/* Custom scrollbar for premium feel */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-paper);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-sage);
+  opacity: 0.3;
+  border-radius: 10px;
+}
