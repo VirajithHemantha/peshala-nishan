@@ -308,10 +308,10 @@ export default function WeddingInvitation() {
                 transition={{ delay: 1, duration: 1.5 }}
                 className="flex flex-col items-center"
               >
-                <span className="text-[10px] md:text-xs uppercase tracking-[0.4em] md:tracking-[0.6em] text-[#d4af37] font-bold mb-2 drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]">
+                <span className="text-[11px] md:text-sm uppercase tracking-[0.5em] md:tracking-[0.7em] text-[#d4af37] font-extrabold mb-3 drop-shadow-[0_0_15px_rgba(255,255,255,0.8)] [text-shadow:0_0_12px_#fff]">
                   Wedding Invitation
                 </span>
-                <h2 className="font-playball text-4xl md:text-6xl text-[#d4af37] drop-shadow-[0_2px_8px_rgba(0,0,0,0.8)]">
+                <h2 className="font-playball text-5xl md:text-7xl text-[#d4af37] drop-shadow-[0_0_20px_rgba(255,255,255,0.8)] [text-shadow:0_0_20px_#fff]">
                   Peshala & Ishan
                 </h2>
               </motion.div>
