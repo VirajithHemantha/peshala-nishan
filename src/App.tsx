@@ -175,12 +175,13 @@ export default function WeddingInvitation() {
   const [isPlaying, setIsPlaying] = useState(false);
 
   useEffect(() => {
-    if (stage === 'website' && audioRef.current) {
+    if ((stage === 'website' || stage === 'video') && audioRef.current) {
       audioRef.current.play()
         .then(() => setIsPlaying(true))
         .catch(e => console.log("Audio autoplay prevented", e));
-    } else if (stage !== 'website' && audioRef.current) {
+    } else if (stage === 'landing' && audioRef.current) {
       audioRef.current.pause();
+      audioRef.current.currentTime = 0;
       setIsPlaying(false);
     }
   }, [stage]);
@@ -237,8 +238,8 @@ export default function WeddingInvitation() {
       <FloatingPetals disabled={stage !== 'website'} />
 
       {/* Background Audio */}
-      <audio ref={audioRef} src="/paulyudin-wedding-485932.mp3" loop />
-      
+      <audio ref={audioRef} src="/Westlife -  Beautiful in white (Lyrics).mp3" loop />
+
       {/* Audio Control Button */}
       <AnimatePresence>
         {stage === 'website' && (
@@ -268,13 +269,13 @@ export default function WeddingInvitation() {
             className="fixed inset-0 z-50 flex flex-col items-center justify-center bg-[#fdfaf5]"
           >
             <div className="absolute inset-0 opacity-[0.03] paper-grain pointer-events-none" />
-            
+
             <div className="relative z-10 flex flex-col items-center text-center px-4">
               <span className="text-[10px] md:text-xs uppercase tracking-[0.5em] text-theme-600 font-bold mb-6">You are invited</span>
               <h1 className="font-playball text-6xl md:text-8xl text-theme-900 mb-4 drop-shadow-sm">Peshala & Ishan</h1>
               <p className="font-cinzel text-sm md:text-lg text-theme-700 tracking-widest mb-12">July 12, 2026</p>
-              
-              <button 
+
+              <button
                 onClick={() => setStage('video')}
                 className="bg-theme-800 text-white px-10 py-4 rounded-full font-bold uppercase tracking-[0.2em] text-xs md:text-sm hover:bg-theme-900 hover:shadow-xl transition-all duration-300"
               >
@@ -296,10 +297,11 @@ export default function WeddingInvitation() {
               src="/intro_video.mp4"
               className="w-full h-full object-cover"
               autoPlay
+              muted
               playsInline
               onEnded={() => setStage('website')}
             />
-            
+
             {/* Elegant overlay text */}
             <div className="absolute top-12 left-1/2 -translate-x-1/2 flex flex-col items-center text-center z-10 pointer-events-none">
               <motion.div
@@ -317,7 +319,7 @@ export default function WeddingInvitation() {
               </motion.div>
             </div>
 
-            <button 
+            <button
               onClick={() => setStage('website')}
               className="absolute top-6 right-6 text-white/70 hover:text-white bg-black/30 hover:bg-black/50 px-4 py-2 rounded-full text-xs uppercase tracking-widest backdrop-blur-sm transition-all z-10"
             >
@@ -348,7 +350,7 @@ export default function WeddingInvitation() {
             </motion.button>
 
             {/* Hero Section */}
-            <section 
+            <section
               className="min-h-[100dvh] w-full flex items-center justify-center p-4 md:p-12 relative overflow-hidden bg-[#fdfaf5] bg-center bg-cover bg-no-repeat"
               style={{ backgroundImage: 'url("/hero_bg.png")' }}
             >
@@ -590,7 +592,7 @@ export default function WeddingInvitation() {
             </section>
 
             {/* Countdown Section */}
-            <section 
+            <section
               className="cv-auto py-24 md:py-36 relative border-y border-theme-100/30 flex flex-col items-center overflow-hidden bg-center bg-cover bg-no-repeat"
               style={{ backgroundImage: 'url("/countdown_bg.png")' }}
             >
@@ -651,7 +653,7 @@ export default function WeddingInvitation() {
                         <span className="text-theme-600 font-bold uppercase tracking-[0.4em] text-[9px] md:text-[11px]">The Venue</span>
                       </div>
                       <h2 className="font-playball text-[2.5rem] sm:text-[3rem] md:text-[4rem] text-theme-900 leading-[1] drop-shadow-sm ml-[-4px]">
-                        Cinnamon Life City Of Dreams<br/> Cumulus Ballroom
+                        Cinnamon Life City Of Dreams<br /> Cumulus Ballroom
                       </h2>
                     </div>
 
