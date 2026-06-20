@@ -176,7 +176,7 @@ export default function WeddingInvitation() {
   const guestParam = new URLSearchParams(window.location.search).get('guest');
 
   // Google Apps Script Web App URL
-  const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbyPmFHU_AGDXmGclPreGkb46SdoxppzDRIHBqu28NFZEDEnZxBI19hbVOJDOJR-u6DvCg/exec";
+  const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbzixexxZW_9JKJol00jX_BtvAaphvejsM6yYyZJAjHAhkINob_LTPUky_m320VhMMEXQQ/exec";
 
   // RSVP Form State
   const [rsvpFullName, setRsvpFullName] = useState("");
